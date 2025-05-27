@@ -1,5 +1,5 @@
 import processChatMessage from "@/lib/ai/process-chat-message"
-import { QUERIES } from "@/lib/db/db"
+import { QUERIES, MUTATIONS } from "@/lib/db/db"
 
 export async function POST(request: Request) {
   let { spreadsheet_id: spreadsheetId, messages } = await request.json()
@@ -9,10 +9,20 @@ export async function POST(request: Request) {
   }
 
   const old_messages = await QUERIES.getAllMessages()
-  messages = [...old_messages.messages, ...messages]
+  messages = [...old_messages, ...messages]
+
+  MUTATIONS.addMessage({
+    role: "user",
+    content: messages[messages.length - 1].content,
+  })
 
   try {
     const response = await processChatMessage(spreadsheetId, messages)
+    MUTATIONS.addMessage({
+      role: "assistant",
+      content: response.response as string,
+    })
+    console.log("Response from AI:", response.response)
     return new Response(JSON.stringify(response), { status: 200 })
   } catch (error) {
     console.error("Error processing chat message:", error)
