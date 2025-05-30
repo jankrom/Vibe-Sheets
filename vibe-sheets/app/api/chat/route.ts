@@ -12,7 +12,9 @@ export async function POST(request: Request) {
       )
     }
 
-    let { spreadsheet_id: spreadsheetId, messages } = await request.json()
+    const requestJson = await request.json()
+    const { spreadsheet_id: spreadsheetId } = requestJson
+    let { messages } = requestJson
 
     if (!messages || !spreadsheetId) {
       return new Response("Invalid input", { status: 400 })
