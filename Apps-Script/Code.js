@@ -37,12 +37,7 @@ function processMessage(message) {
       },
       payload: JSON.stringify({
         data: sheetData,
-        messages: [
-          {
-            role: "user",
-            content: message,
-          },
-        ],
+        message,
         spreadsheet_id: SPREADSHEET_ID,
       }),
       muteHttpExceptions: true,

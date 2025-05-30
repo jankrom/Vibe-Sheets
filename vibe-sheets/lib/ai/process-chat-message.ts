@@ -1,12 +1,18 @@
 import invokeAIAgent from "./ai-agent"
-
-export type Message = { role: "user" | "assistant"; content: string }
+import { QUERIES } from "../db/db"
+import { BaseMessage, HumanMessage } from "@langchain/core/messages"
 
 const processChatMessage = async (
   spreadsheetId: string,
-  messages: Message[]
+  userMessage: string,
+  JWT: string
 ) => {
-  const response = await invokeAIAgent(spreadsheetId, messages)
+  const old_messages: BaseMessage[] = await QUERIES.getAllMessages()
+  const all_messages: BaseMessage[] = [
+    ...old_messages,
+    new HumanMessage(userMessage),
+  ]
+  const response = await invokeAIAgent(spreadsheetId, all_messages, JWT)
   return {
     response: response,
   }

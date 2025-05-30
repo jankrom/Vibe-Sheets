@@ -1,7 +1,8 @@
 import { createReactAgent } from "@langchain/langgraph/prebuilt"
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai"
 import { tools } from "./tools/sheet-tools"
-import { Message } from "./process-chat-message"
+import { MUTATIONS } from "../db/db"
+import { BaseMessage } from "@langchain/core/messages"
 
 const model = new ChatGoogleGenerativeAI({
   model: "gemini-2.5-flash-preview-05-20",
@@ -16,13 +17,14 @@ const agent = createReactAgent({
 
 const invokeAIAgent = async (
   spreadsheetId: string,
-  messagesToSend: Message[]
+  messagesToSend: BaseMessage[],
+  JWT: string
 ) => {
-  const { messages } = await agent.invoke(
+  const { messages }: { messages: BaseMessage[] } = await agent.invoke(
     { messages: messagesToSend },
-    { configurable: { spreadsheetId } }
+    { configurable: { spreadsheetId, jwt: JWT } }
   )
-  // console.log("AI Agent invoked with messages:", messages)
+  MUTATIONS.setMessages(messages)
   return messages[messages.length - 1].content
 }
 

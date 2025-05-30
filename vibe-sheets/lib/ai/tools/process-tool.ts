@@ -17,8 +17,12 @@ const ProcessTool = async (
 ) => {
   try {
     const spreadsheetId = config.configurable?.spreadsheetId
+    const JWT = config.configurable?.jwt
     if (!spreadsheetId) {
       throw new Error("Spreadsheet ID not found in the configurable config.")
+    }
+    if (!JWT) {
+      throw new Error("JWT not found in the configurable config.")
     }
 
     const response = await fetch(APPS_SCRIPT_WEB_APP_URL, {
@@ -30,6 +34,7 @@ const ProcessTool = async (
         spreadsheetId,
         action: actionName,
         data,
+        token: JWT,
       }),
     })
 
@@ -39,7 +44,10 @@ const ProcessTool = async (
       throw new Error(`Apps Script Error: ${result.result || "Unknown error"}`)
     }
 
-    return { result: result.result, message: `Successfully performed action ${actionName}` }
+    return {
+      result: result.result,
+      message: `Successfully performed action ${actionName}`,
+    }
   } catch (error) {
     return {
       message: `Failed to perform action ${actionName}: ${error.message}`,
