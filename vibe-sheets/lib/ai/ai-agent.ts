@@ -22,7 +22,7 @@ const invokeAIAgent = async (
     { messages: messagesToSend },
     { configurable: { spreadsheetId } }
   )
-  console.log("AI Agent invoked with messages:", messages)
+  // console.log("AI Agent invoked with messages:", messages)
   return messages[messages.length - 1].content
 }
 

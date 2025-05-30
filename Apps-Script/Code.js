@@ -1,5 +1,5 @@
 const SERVER_URL =
-  "https://909b-2601-58c-c081-2430-8dcd-cda8-64ad-6f4d.ngrok-free.app"
+  "https://e170-2601-58c-c081-2430-49b3-43e0-b736-b2a1.ngrok-free.app"
 const SPREADSHEET_ID = SpreadsheetApp.getActiveSpreadsheet().getId()
 
 function onOpen(e) {
@@ -25,12 +25,16 @@ function showMySidebar() {
 function processMessage(message) {
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet()
   const sheetData = sheet.getDataRange().getValues() // sheet data in 2D array
-  let AI_response = ""
+  let AI_response = {}
 
   try {
+    const token = getAuthToken()
     const apiResponse = UrlFetchApp.fetch(SERVER_URL + "/api/chat", {
       method: "post",
       contentType: "application/json",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       payload: JSON.stringify({
         data: sheetData,
         messages: [
@@ -41,16 +45,20 @@ function processMessage(message) {
         ],
         spreadsheet_id: SPREADSHEET_ID,
       }),
+      muteHttpExceptions: true,
     })
+    if (apiResponse.getResponseCode() === 401) {
+      return { error: "Unauthorized" }
+    }
     const response = JSON.parse(apiResponse.getContentText())
 
-    AI_response = response.response
+    AI_response = { response: response.response }
   } catch (error) {
     Logger.log("Error: " + error.message)
-    AI_response = "Error: " + error.message
+    AI_response = { response: "Error: " + error.message }
   }
 
-  return AI_response 
+  return AI_response
 }
 
 /**
@@ -75,7 +83,14 @@ function doPost(e) {
       throw new Error("Invalid request: No POST data found.")
     }
 
-    const { spreadsheetId, action, data } = JSON.parse(e.postData.contents)
+    const { spreadsheetId, action, data, token } = JSON.parse(
+      e.postData.contents
+    )
+    if (!token || !isValidAuthToken(token)) {
+      throw new Error(
+        "Authentication failed: Missing or invalid token in payload."
+      )
+    }
     if (!spreadsheetId || !action) {
       throw new Error("Invalid request: Missing 'spreadsheetId' or 'action'.")
     }
@@ -83,7 +98,7 @@ function doPost(e) {
     const spreadsheet = SpreadsheetApp.openById(spreadsheetId)
     const sheet = spreadsheet.getActiveSheet()
 
-    const result = processAction(action, data, sheet) // can throw error
+    const result = processAction(action, data, sheet, token) // can throw error
 
     output.setContent(
       JSON.stringify({

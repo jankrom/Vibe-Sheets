@@ -103,6 +103,62 @@
     {
       "role": "assistant",
       "content": "Okay, I've now cleared the sheet and added the GitHub URLs and names as requested. I apologize for that oversight! Is there anything else I can do for you?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you with your spreadsheet today?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello again! How can I help you with your spreadsheet today?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you with your spreadsheet?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you with your spreadsheet today?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! Is there something specific you'd like to do with your spreadsheet, or are you just saying hello? I'm here to help if you have any questions or tasks!"
+    },
+    {
+      "role": "user",
+      "content": "ihi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I help you with your spreadsheet today?"
+    },
+    {
+      "role": "user",
+      "content": "hi"
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! How can I assist you with your spreadsheet? Do you have any tasks in mind, or are you looking for some ideas?"
     }
   ]
 }

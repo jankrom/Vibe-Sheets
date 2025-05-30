@@ -1,6 +1,9 @@
-function processAction(action, data, sheet) {
+function processAction(action, data, sheet, token) {
   let result = ""
   switch (action) {
+    case "updateAuthToken":
+      result = updateAuthToken(token)
+      break
     case "getAllData":
       result = sheet.getDataRange().getValues()
       break

@@ -1,22 +1,31 @@
 import processChatMessage from "@/lib/ai/process-chat-message"
+import { isUserSignedIn } from "@/lib/auth/auth-verification"
 import { QUERIES, MUTATIONS } from "@/lib/db/db"
 
 export async function POST(request: Request) {
-  let { spreadsheet_id: spreadsheetId, messages } = await request.json()
-
-  if (!messages || !spreadsheetId) {
-    return new Response("Invalid input", { status: 400 })
-  }
-
-  const old_messages = await QUERIES.getAllMessages()
-  messages = [...old_messages, ...messages]
-
-  MUTATIONS.addMessage({
-    role: "user",
-    content: messages[messages.length - 1].content,
-  })
-
   try {
+    const isSignedIn = await isUserSignedIn()
+    if (!isSignedIn) {
+      return Response.json(
+        { error: "Error: No signed in user" },
+        { status: 401 }
+      )
+    }
+
+    let { spreadsheet_id: spreadsheetId, messages } = await request.json()
+
+    if (!messages || !spreadsheetId) {
+      return new Response("Invalid input", { status: 400 })
+    }
+
+    const old_messages = await QUERIES.getAllMessages()
+    messages = [...old_messages, ...messages]
+
+    MUTATIONS.addMessage({
+      role: "user",
+      content: messages[messages.length - 1].content,
+    })
+
     const response = await processChatMessage(spreadsheetId, messages)
     MUTATIONS.addMessage({
       role: "assistant",
