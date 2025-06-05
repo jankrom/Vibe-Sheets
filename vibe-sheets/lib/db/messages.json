@@ -381,23 +381,6 @@
             }
           }
         ],
-        "tool_calls": [
-          {
-            "name": "set_cell_values_in_range",
-            "args": {
-              "values": [
-                [
-                  "Vibe",
-                  "Sheets",
-                  "AI"
-                ]
-              ],
-              "range": "A1:C1"
-            },
-            "type": "tool_call",
-            "id": "1a0f5e77-82eb-4c63-8791-c0d023fd143f"
-          }
-        ],
         "additional_kwargs": {
           "finishReason": "STOP",
           "index": 0
@@ -417,7 +400,24 @@
           "finishReason": "STOP",
           "index": 0
         },
-        "id": "4f3ab230-c3a2-4c89-bd57-b0459795189d"
+        "id": "4f3ab230-c3a2-4c89-bd57-b0459795189d",
+        "tool_calls": [
+          {
+            "name": "set_cell_values_in_range",
+            "args": {
+              "values": [
+                [
+                  "Vibe",
+                  "Sheets",
+                  "AI"
+                ]
+              ],
+              "range": "A1:C1"
+            },
+            "type": "tool_call",
+            "id": "1a0f5e77-82eb-4c63-8791-c0d023fd143f"
+          }
+        ]
       }
     },
     {
@@ -447,7 +447,6 @@
       ],
       "kwargs": {
         "content": "How about this: I've just added \"Vibe Sheets AI\" to cells A1, B1, and C1. It's a small touch, but it shows I can directly manipulate your sheet's content!\n\nDid that impress you? What else would you like to do?",
-        "tool_calls": [],
         "additional_kwargs": {
           "finishReason": "STOP",
           "index": 0
@@ -467,7 +466,680 @@
           "finishReason": "STOP",
           "index": 0
         },
-        "id": "8a89a8d1-fe35-4d70-b72d-8cf10fa99edb"
+        "id": "8a89a8d1-fe35-4d70-b72d-8cf10fa99edb",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "hi",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "3ea2f7cb-26f3-4760-8045-91557c09ff32"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "Hello there! How can I assist you today?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1274,
+          "output_tokens": 10,
+          "total_tokens": 1344
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1274,
+            "completionTokens": 10,
+            "totalTokens": 1344
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "feebb8c0-17b0-46ba-9b32-d71ac67a695f",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "can you remove the last row pls",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "cdb8672b-861b-4d4a-9b51-2847194cb123"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "I can help with that, but I need to know the row number you'd like to delete. Could you please tell me the row number of the last row?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1293,
+          "output_tokens": 34,
+          "total_tokens": 1477
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1293,
+            "completionTokens": 34,
+            "totalTokens": 1477
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "0d75223a-6422-4841-9af1-634573fbb460",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "Add a new row with some cool information",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "c1f33e19-2a58-4339-8c8f-0d1bd504f20a"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": [
+          {
+            "functionCall": {
+              "name": "append_row",
+              "args": {
+                "data": [
+                  "Fun Fact: The first electronic spreadsheet, VisiCalc, was released in 1979."
+                ]
+              }
+            }
+          }
+        ],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1337,
+          "output_tokens": 35,
+          "total_tokens": 1534
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1337,
+            "completionTokens": 35,
+            "totalTokens": 1534
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "ae3264ab-5b5f-4768-a743-b2d7ddf4ef15",
+        "tool_calls": [
+          {
+            "name": "append_row",
+            "args": {
+              "data": [
+                "Fun Fact: The first electronic spreadsheet, VisiCalc, was released in 1979."
+              ]
+            },
+            "type": "tool_call",
+            "id": "98888699-669b-42d1-9b3e-08c0d9318f11"
+          }
+        ]
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "ToolMessage"
+      ],
+      "kwargs": {
+        "content": "{\n  \"message\": \"Failed to perform action appendRow: Apps Script Error: Authentication failed: Missing or invalid token in payload.\"\n}",
+        "tool_call_id": "98888699-669b-42d1-9b3e-08c0d9318f11",
+        "name": "append_row",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "a3f2773c-ef42-4a95-8fc0-3866881911bf"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "I encountered an issue while trying to add the row with the fun fact. It seems like there might be an authentication problem again. Could you please try again or check your authentication settings?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1417,
+          "output_tokens": 37,
+          "total_tokens": 1618
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1417,
+            "completionTokens": 37,
+            "totalTokens": 1618
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "ae29c4bb-e0f2-4977-af8a-2a35f72ed166",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "hi",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "4790948a-c538-41fe-a2a9-0a564de00471"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "Hello again! How can I help you with your spreadsheet today?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1457,
+          "output_tokens": 13,
+          "total_tokens": 1470
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1457,
+            "completionTokens": 13,
+            "totalTokens": 1470
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "8f2f4f5e-cd4a-48cd-b3f1-78b181042e0d",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "hi",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "c33e91f9-691a-466d-ae3a-c023eaeba18a"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "Hello! How can I assist you with your Google Sheet today?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1473,
+          "output_tokens": 13,
+          "total_tokens": 1555
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1473,
+            "completionTokens": 13,
+            "totalTokens": 1555
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "7933e49c-2e2d-448f-bc91-dd3644b92049",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "add a new row with 123",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "eddbe0e3-a039-4d19-a1ad-6b16458c506f"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": [
+          {
+            "functionCall": {
+              "name": "append_row",
+              "args": {
+                "data": [
+                  "123"
+                ]
+              }
+            }
+          }
+        ],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1497,
+          "output_tokens": 17,
+          "total_tokens": 1566
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1497,
+            "completionTokens": 17,
+            "totalTokens": 1566
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "a3ed4b4e-08a6-406b-b4bf-838284b26321",
+        "tool_calls": [
+          {
+            "name": "append_row",
+            "args": {
+              "data": [
+                "123"
+              ]
+            },
+            "type": "tool_call",
+            "id": "17ddd7c2-a4f4-471e-9d96-6baaf5e56453"
+          }
+        ]
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "ToolMessage"
+      ],
+      "kwargs": {
+        "content": "{\n  \"result\": \"Row appended successfully.\",\n  \"message\": \"Successfully performed action appendRow\"\n}",
+        "tool_call_id": "17ddd7c2-a4f4-471e-9d96-6baaf5e56453",
+        "name": "append_row",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "18801bde-e0dd-4a1d-9cb4-03b976bf5563"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": [
+          {
+            "functionCall": {
+              "name": "get_all_data",
+              "args": {}
+            }
+          }
+        ],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 1555,
+          "output_tokens": 12,
+          "total_tokens": 1639
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 1555,
+            "completionTokens": 12,
+            "totalTokens": 1639
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "f6786c84-b059-44e7-96ae-4355e28cc9cd",
+        "tool_calls": [
+          {
+            "name": "get_all_data",
+            "args": {},
+            "type": "tool_call",
+            "id": "8574a9d9-2f92-432f-854d-7c59916ea34c"
+          }
+        ]
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "ToolMessage"
+      ],
+      "kwargs": {
+        "content": "{\n  \"result\": [\n    [\n      \"Vibe\",\n      \"Sheets\",\n      \"AI\"\n    ],\n    [\n      \"https://github.com/gaearon\",\n      \"Dan Abramov\",\n      \"\"\n    ],\n    [\n      \"https://github.com/frenck\",\n      \"Franck Nijhof\",\n      \"\"\n    ],\n    [\n      \"https://github.com/charliermarsh\",\n      \"Charlie Marsh\",\n      \"\"\n    ],\n    [\n      \"https://github.com/peppy\",\n      \"Dean Herbert\",\n      \"\"\n    ],\n    [\n      \"https://github.com/weierophinney\",\n      \"Matthew Weier O'Phinney\",\n      \"\"\n    ],\n    [\n      \"https://github.com/springmeyer\",\n      \"Dane Springmeyer\",\n      \"\"\n    ],\n    [\n      \"https://github.com/dcramer\",\n      \"David Cramer\",\n      \"\"\n    ],\n    [\n      \"https://github.com/jeromeetienne\",\n      \"Jerome Etienne\",\n      \"\"\n    ],\n    [\n      \"https://github.com/Leslie-T-art\",\n      \"Leslie Chihwai\",\n      \"\"\n    ],\n    [\n      \"https://github.com/codewithkin\",\n      \"Kin Leon Zinzombe\",\n      \"\"\n    ],\n    [\n      123,\n      546,\n      \"\"\n    ],\n    [\n      123,\n      \"\",\n      \"\"\n    ]\n  ],\n  \"message\": \"Successfully performed action getAllData\"\n}",
+        "tool_call_id": "8574a9d9-2f92-432f-854d-7c59916ea34c",
+        "name": "get_all_data",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "e78e783c-0644-4852-8e1a-3e13fd9fa550"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "I've added a new row with \"123\" for you! Is there anything else I can help you with?",
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 2003,
+          "output_tokens": 26,
+          "total_tokens": 2123
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 2003,
+            "completionTokens": 26,
+            "totalTokens": 2123
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "f4be9b1f-c328-48a5-a59c-56104e6e3bd5",
+        "tool_calls": []
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "HumanMessage"
+      ],
+      "kwargs": {
+        "content": "clear the whole spreadsheet please",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "b3a11d7e-dfbc-4b4c-bff3-7b96ffab964d"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": [
+          {
+            "functionCall": {
+              "name": "clear_entire_sheet",
+              "args": {}
+            }
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "clear_entire_sheet",
+            "args": {},
+            "type": "tool_call",
+            "id": "cb3dc8b3-d326-459b-ad94-acbe7896b70a"
+          }
+        ],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 2036,
+          "output_tokens": 12,
+          "total_tokens": 2074
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 2036,
+            "completionTokens": 12,
+            "totalTokens": 2074
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "8eab1d59-e45a-4a04-ab5d-b54e79afc495"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "ToolMessage"
+      ],
+      "kwargs": {
+        "content": "{\n  \"result\": \"The entire sheet has been cleared, including all content and formatting.\",\n  \"message\": \"Successfully performed action clearEntireSheet\"\n}",
+        "tool_call_id": "cb3dc8b3-d326-459b-ad94-acbe7896b70a",
+        "name": "clear_entire_sheet",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "ae9cbf2f-2ec9-4656-94c5-98d20423fe62"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": [
+          {
+            "functionCall": {
+              "name": "clear_entire_sheet",
+              "args": {}
+            }
+          }
+        ],
+        "tool_calls": [
+          {
+            "name": "clear_entire_sheet",
+            "args": {},
+            "type": "tool_call",
+            "id": "3894a86e-5ba5-4d98-92e9-cca06539ec06"
+          }
+        ],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 2101,
+          "output_tokens": 12,
+          "total_tokens": 2145
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 2101,
+            "completionTokens": 12,
+            "totalTokens": 2145
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "6c50ee7f-d56b-4897-99ea-d1a219fa1348"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "ToolMessage"
+      ],
+      "kwargs": {
+        "content": "{\n  \"result\": \"The entire sheet has been cleared, including all content and formatting.\",\n  \"message\": \"Successfully performed action clearEntireSheet\"\n}",
+        "tool_call_id": "3894a86e-5ba5-4d98-92e9-cca06539ec06",
+        "name": "clear_entire_sheet",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "id": "e0286bb5-6efb-4184-b934-9de1553cdf53"
+      }
+    },
+    {
+      "lc": 1,
+      "type": "constructor",
+      "id": [
+        "langchain_core",
+        "messages",
+        "AIMessage"
+      ],
+      "kwargs": {
+        "content": "I've cleared the entire spreadsheet for you, including all content and formatting. It's now a blank slate!",
+        "tool_calls": [],
+        "additional_kwargs": {
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "usage_metadata": {
+          "input_tokens": 2166,
+          "output_tokens": 24,
+          "total_tokens": 2224
+        },
+        "invalid_tool_calls": [],
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 2166,
+            "completionTokens": 24,
+            "totalTokens": 2224
+          },
+          "finishReason": "STOP",
+          "index": 0
+        },
+        "id": "22f87ae2-46c9-406a-ac2f-b96c9b1956aa"
       }
     }
   ]
