@@ -1,5 +1,5 @@
 # Vibe-Sheets
-Cursor for Google Sheets. Make changes to your spreadsheet by talking to a chat bot
+Cursor for Google Sheets. Make changes to your spreadsheet by talking to an AI agent
 
 ## Features
 
@@ -26,6 +26,7 @@ https://github.com/user-attachments/assets/5cbeb996-1c37-4a24-8ed7-7e3b3e58a2c8
 - React
 - Next.js
 - Clerk
+- LangGraph to make the AI agent
 
 Uses the following project for React in Google Apps Script: https://github.com/enuchi/React-Google-Apps-Script
 
